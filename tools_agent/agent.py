@@ -171,7 +171,7 @@ async def graph(config: RunnableConfig):
             or None
         )
         try:
-            async with streamablehttp_client(server_url, headers=headers) as streams:
+            async with streamablehttp_client(server_url, headers=None) as streams:
                 read_stream, write_stream, _ = streams
                 async with ClientSession(read_stream, write_stream) as session:
                     await session.initialize()
